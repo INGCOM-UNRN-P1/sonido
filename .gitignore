@@ -1,0 +1,28 @@
+# Build artifacts
+obj/
+lib/
+*.o
+*.a
+*.so
+
+# Test executables
+tests/test_*
+!tests/*.c
+
+# Example executables
+examples/sine_wave
+examples/wav_info
+!examples/*.c
+
+# Generated WAV files
+*.wav
+
+# Temporary files
+*~
+.*.swp
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.pro.user
