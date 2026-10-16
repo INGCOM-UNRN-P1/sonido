@@ -2,7 +2,8 @@
 CC = gcc
 
 # Opciones de compilación
-CFLAGS = -Wall -Wextra -pedantic -g -lm
+CFLAGS = -Wall -Wextra -pedantic -g
+LDLIBS = -lm
 
 # Nombres de las librerías (sin el prefijo lib y la extensión .a)
 LIB_NAME = libreria
@@ -34,11 +35,11 @@ all: $(PROG_TARGET) $(TEST_TARGET)
 
 # Compilar el programa principal
 $(PROG_TARGET): $(PROG_OBJS) $(SRCS:.c=.o)
-	$(CC) $(CFLAGS) -o $@ $(PROG_OBJS) $(SRCS:.c=.o) $(LIBRARY_DIRS) $(LIBRARY)
+	$(CC) $(CFLAGS) -o $@ $(PROG_OBJS) $(SRCS:.c=.o) $(LIBRARY_DIRS) $(LIBRARY) $(LDLIBS)
 
 # Compilar el ejecutable de pruebas
 $(TEST_TARGET): $(TEST_OBJS) $(SRCS:.c=.o)
-	$(CC) $(CFLAGS) -o $@ $(TEST_OBJS) $(SRCS:.c=.o) $(LIBRARY_DIRS) $(LIBRARY)
+	$(CC) $(CFLAGS) -o $@ $(TEST_OBJS) $(SRCS:.c=.o) $(LIBRARY_DIRS) $(LIBRARY) $(LDLIBS)
 
 # Regla genérica para compilar archivos .o a partir de .c
 %.o: %.c $(HDRS)

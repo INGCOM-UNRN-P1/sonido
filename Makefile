@@ -12,7 +12,7 @@ PROG_DIRS = ejercicio
 CC = gcc
 
 # Opciones de compilación
-CFLAGS = -Wall -Wextra -pedantic -g -lm
+CFLAGS = -Wall -Wextra -pedantic -g
 
 # Directorios de las librerías
 LIB_DIR = $(addprefix ../,$(LIB_NAME))

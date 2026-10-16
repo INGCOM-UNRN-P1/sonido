@@ -1,6 +1,7 @@
 # Variables generales
 CC = gcc
-CFLAGS = -Wall -Wextra -g -lm
+CFLAGS = -Wall -Wextra -g
+LDLIBS = -lm
 
 # Archivos comunes, este es el lugar para cambiar el nombre
 # o agregar más archivos a la compilación.
@@ -30,7 +31,7 @@ $(LIBRARY_NAME): $(OBJS)
 # Compilar el ejecutable de pruebas
 $(TEST_TARGET): $(TEST_OBJS)
 	@echo "compilando $@"
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS)
 
 # Regla genérica para compilar archivos .o a partir de .c
 %.o: %.c $(HDRS)
